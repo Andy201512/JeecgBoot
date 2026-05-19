@@ -25,4 +25,5 @@ jobs:
         uses: softprops/action-gh-release@v3
         with:
           working_directory: dist
+          tag_name: stage-2026-05-20
           files: /*
