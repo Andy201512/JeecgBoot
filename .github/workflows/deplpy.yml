@@ -5,6 +5,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./jeecgboot-vue3
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -27,6 +30,3 @@ jobs:
           files: dist/*
           draft: true
           fail_on_unmatched_files: true
-    defaults:
-      run:
-        working-directory: /jeecgboot-vue
