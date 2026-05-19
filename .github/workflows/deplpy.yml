@@ -19,9 +19,11 @@ jobs:
         run: npm install --legacy-peer-deps
       - name: Build
         run: npm run build
+      - name: print files
+        run: ls -al ./
       - name: Release
         uses: softprops/action-gh-release@v3
         with:
-          files: dist/*
+          files: ./dist/*
           draft: true
           fail_on_unmatched_files: true
