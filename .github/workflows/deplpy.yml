@@ -10,13 +10,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+      - name: change diretory
+        run: cd ./jeecgboot-vue3 
       - name: Set up Node
         uses: actions/setup-node@v6
         with:
           node-version: lts/*
           cache: 'npm'
-      - name: change diretory
-        run: cd ./jeecgboot-vue3 
       - name: Install dependencies
         run: npm ci
       - name: Build
