@@ -20,8 +20,8 @@ jobs:
           version: latest
       - name: Install dependencies
         run: |
+          pnpm config set ignore-scripts false
           pnpm i --no-frozen-lockfile
-          pnpm approve-builds --all
       - name: Build
         run: npm run build
       - name: Release
