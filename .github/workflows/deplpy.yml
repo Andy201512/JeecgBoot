@@ -1,8 +1,6 @@
 name: release jeecg-boot-vue
 on:
-  push:
-    tags:
-      - 'v0.*.*'
+  workflow_dispatch:
 
 jobs:
   build:
