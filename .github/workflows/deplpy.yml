@@ -2,7 +2,7 @@ name: release jeecg-boot-vue
 on:
   push:
     tags:
-      - 'v0.*.*'
+      - 'v0.*'
 
 jobs:
   build:
