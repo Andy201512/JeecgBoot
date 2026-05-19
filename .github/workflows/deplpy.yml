@@ -16,10 +16,12 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: lts/*
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 6.24.1
+      - run: pnpm install
       - name: Install dependencies
-        run: |
-          npm install pnpm -g
-          pnpm -v
+        run:
           pnpm i
       - name: Build
         run: npm run build
