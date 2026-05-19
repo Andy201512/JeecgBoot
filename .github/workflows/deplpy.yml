@@ -24,8 +24,7 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v3
         with:
+          token: ${{ secrets.TOKEN }}
           working_directory: dist
           tag_name: stage-2026-05-20
           files: /*
-        env:
-          GH_TOKEN: ${{ secrets.TOKEN }}
