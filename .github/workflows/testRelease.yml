@@ -29,7 +29,7 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v3
         with:
-          tag_name: test-${{ steps.get_time.outputs.TIME }}
+          tag_name: 'test-${{ steps.get_time.outputs.TIME }}'
           working_directory: ./jeecgboot-vue3
           token: ${{ secrets.TOKEN }}
           files: archive.tar.gz
