@@ -6,16 +6,24 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./jeecgboot-vue3
     steps:
       - name: Checkout
         uses: actions/checkout@v6
       - name: Build
-        run: echo ${{ github.sha }} > Release.txt
+        run: |
+          mkdir dist
+          echo ${{ github.sha }} > dist/Release.txt
       - name: Test
-        run: cat Release.txt
+        run: |
+          pwd
+          cat dist/Release.txt
+          tar -czf archive.tar.gz dist
       - name: Release
         uses: softprops/action-gh-release@v3
         with:
           tag_name: test
           token: ${{ secrets.TOKEN }}
-          files: Release.txt
+          files: archive.tar.gz
