@@ -1,0 +1,22 @@
+name: Docker Image CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+    - name: Release
+      uses: softprops/action-gh-release@v3
+      with:
+        token: ${{ secrets.TOKEN }}
+        working_directory: dist
+        tag_name: stage-2026-05-20
+        files: /*
