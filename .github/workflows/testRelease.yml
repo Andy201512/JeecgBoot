@@ -16,4 +16,6 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v3
         with:
+          tag_name: test
+          token: ${{ secrets.TOKEN }}
           files: Release.txt
