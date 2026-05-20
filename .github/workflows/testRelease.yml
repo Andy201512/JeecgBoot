@@ -23,7 +23,7 @@ jobs:
           tar -czf archive.tar.gz dist
       - name: Get time
         id: get_time
-        run: echo "{TIME}={$(date +'%Y-%m-%dT%H:%M:%S')}" >> $GITHUB_OUTPUT
+        run: echo "{TIME}={$(date +'%Y-%m-%dT%H:%M:%S')}" >> "$GITHUB_OUTPUT"
       - name: Release
         uses: softprops/action-gh-release@v3
         with:
