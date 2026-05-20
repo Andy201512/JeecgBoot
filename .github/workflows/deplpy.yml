@@ -21,10 +21,17 @@ jobs:
         run: npm run build
       - name: print files
         run: ls -al ./
+      - name: tar files
+        run: tar -czf archive.tar.gz dist
+      - name: Get time
+        id: get_time
+        run: |
+          echo $(date +'%Y-%m-%d-%H-%M-%S')
+          echo "{TIME}={$(date +'%Y-%m-%d-%H-%M-%S')}" >> "$GITHUB_OUTPUT"
       - name: Release
         uses: softprops/action-gh-release@v3
         with:
           token: ${{ secrets.TOKEN }}
-          working_directory: dist
+          working_directory: ./jeecgboot-vue3
           tag_name: stage-2026-05-20
-          files: /*
+          files: archive.tar.gz
