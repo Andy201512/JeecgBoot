@@ -21,10 +21,13 @@ jobs:
           pwd
           cat dist/Release.txt
           tar -czf archive.tar.gz dist
+      - name: Get time
+        id: get_time
+        run: echo ::set-output name=TIME::$(date +'%Y-%m-%dT%H:%M:%S')
       - name: Release
         uses: softprops/action-gh-release@v3
         with:
-          tag_name: test:$(date +'%Y-%m-%dT%H:%M:%S')
+          tag_name: ${{ steps.get_time.outputs.TIME }}
           working_directory: ./jeecgboot-vue3
           token: ${{ secrets.TOKEN }}
           files: archive.tar.gz
