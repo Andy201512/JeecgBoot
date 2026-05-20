@@ -25,11 +25,11 @@ jobs:
         id: get_time
         run: |
           echo $(date +'%Y-%m-%dT%H:%M:%S')
-          echo "{TIME}={$(date +'%Y-%m-%dT%H:%M:%S')}" >> "$GITHUB_OUTPUT"
+          echo "{TIME}={$(date +'%Y-%m-%dT%H%M%S')}" >> "$GITHUB_OUTPUT"
       - name: Release
         uses: softprops/action-gh-release@v3
         with:
-          tag_name: ${{ steps.get_time.outputs.TIME }}
+          tag_name: test-${{ steps.get_time.outputs.TIME }}
           working_directory: ./jeecgboot-vue3
           token: ${{ secrets.TOKEN }}
           files: archive.tar.gz
